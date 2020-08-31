@@ -1,0 +1,119 @@
+.bg_color {
+    background-color: darkslategray;
+}
+ 
+.card {
+    background-color: rgba(0,0,0,0.5);
+}
+ 
+.form_title {
+    font-family: 'Times new roman';
+    font-size: 30px;
+    color:white;
+    text-align: center;
+}
+
+.form_sub_title {
+    font-family: 'Times new roman';
+    font-size: 28px;
+    color: white;
+    text-align: center;
+}
+
+.legend {
+    font-family: 'Times new roman';
+    font-size: 25px;
+    color:black;
+
+}
+ 
+.form_pad {
+    padding-left: 77px;
+}
+ 
+.input_type {
+    background-color: rgba(0,0,0,0.5);
+    color : grey;
+    width:100%;
+} 
+ 
+.lbl {
+    font-family: Times new roman;
+    font-size: 125%;
+    color:grey;
+}
+
+.address {
+    color:white;
+
+}
+ 
+.table_head {
+    color : white;
+    font-size: 18px;
+    font-weight:lighter;
+    font-family: 'Times New Roman';
+    padding-left: 25px;
+}
+
+.pob {
+    margin-left: 15px;
+}
+ 
+.council {
+    margin-left: 25px;
+}
+ 
+.button_save_con {
+    background-color:black;
+    border: none;
+    color:white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 16px;
+    float: right;
+
+}
+
+.button_save_con:hover {
+    background-color: #f1f1f1f1;
+}
+
+.button_prev {
+    background-color:black;
+    border: none;
+    color:white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 16px;
+    float: left;
+ 
+}
+ 
+.button_prev:hover {
+    background-color: #f1f1f1f1;
+}
+ 
+.rp_address_pad {
+    margin-top: 55px;
+}
+ 
+.c_address_pad {
+    margin-top: 23px
+}
+ 
+.check_addr {
+    margin-bottom:8px;
+}
+
+.error {
+    color : red;
+    width:100%;
+    text-align: center;
+}

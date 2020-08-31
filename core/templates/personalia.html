@@ -1,0 +1,206 @@
+<!--using html5 doctype -->
+<!doctype html>
+
+<!--using language attribute-->
+<html lang="en">
+    <head>
+        <!--links added in head tag to call Bootstrap live project from MAXCDN-->
+        <!--below ones are from MAXCDN-->
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <!-- plugin for jquery validation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"> </script>
+        
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <!--using character set attribute in meta tag-->
+        <meta charset="UTF-8">
+
+        <!--bootstrap-4 for mobile responsive-->
+	    <!--using below meta tag to set width and initial zoom level-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--link for CSS-->
+        <link rel="stylesheet" type="text/css" href="\static\css\mos_style.css">
+        
+        <!-- link for jquery validation -->
+        <script src = "{{('\static\jquery\mos_val.js')}}"> </script>
+
+        <!--link for input group prepend for adding text / icon in the input -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        
+    </head>
+
+    <body class = "bg_color">
+        <div class="container form_title">
+            <p> MOS Membership Application Form  </p>
+        </div>
+
+        <div class="container"> 
+            <fieldset>     
+                <legend> <i class = "legend" > Personal Information </i> </legend>          
+                <div class="card">
+                    <div class="card-body">
+                        
+                        <form name = "personalia" id = "personalia" action = "{{ url_for('mos.Personalia', id = id) }}" method = "POST">
+                            <!--input filed for Name-->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-warning fas fa-user"> </span>
+                                </div>
+
+
+                                <select class="form-control input_type" id="prefix" name = "prefix" >
+                                    <option value = ""> --Select-- </option>
+                                    <option value = "Mr." {{ 'selected' if user.Name_prefix=='Mr.'  }} > Mr. </option>
+                                    <option value = "Mrs." {{ 'selected' if user.Name_prefix=='Mrs.'  }}> Mrs. </option>
+                                    <option value = "Dr." {{ 'selected' if user.Name_prefix=='Dr.'  }}> Dr. </option>
+                                    <option value = "Ms." {{ 'selected' if user.Name_prefix=='Ms.'  }}> Ms. </option>
+                                    <option value = "Prof." {{ 'selected' if user.Name_prefix=='Prof.'  }}> Prof. </option>
+                                    <option value = "Others" {{ 'selected' if user.Name_prefix=='Others'  }}> Others </option>
+                                </select> 
+                                
+                                <input type="text" name="name" id="name" class="form-control input_type" placeholder="Enter Full Name" value = "{{user.User_name}}"> 
+                                
+                            </div>
+                            <br>
+                            
+
+                            <!--input field for email id -->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-warning fas fa-envelope"> </span>
+                                </div>
+                                <input type="email" name="email" id="email" value = "{{user.Email_id}}" class="form-control input_type" placeholder="Your Email">
+                            </div>
+                                
+                            
+                            <br> 
+
+                            <!--input field for Mobile -->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-warning fas fa-phone"> </span>
+                                </div>
+                                <input type = "number" name="mobile" id="mobile" value = "{{user.Mobile}}" class="form-control input_type" placeholder = "Enter Mobile number">
+                            </div>
+                                
+                            
+                            <br>
+                                    
+                            <!--input field for Date of Birth -->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-warning fas fa-birthday-cake"> </span>
+                                </div>
+                                <input type = "date" id = "dob" name = "dob" value = "{{user.DOB}}" class="form-control input_type">
+                                
+                            </div> 
+                            <br>
+
+                            <!--input field for Age -->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-warning far fa-calendar-alt"> </span>
+                                </div>
+                                <input type = "number" name="age" id="age" value = "{{user.Age}}" class="form-control input_type" placeholder = "Enter Age">
+                                
+                            </div> 
+                            <br>
+
+                            <!--input field for AIOS -->
+                            <div class="input-group">
+                                <label for = "aios" class = "lbl"> AIOS : </label>
+                                <input type = "text" name = "aios" id = "aios" value = "{{user.AIOS_id}}" class = "form-control input_type pob">
+                                
+                            </div> 
+                            <br>
+
+                            <!-- place of birth -->
+                            <div class="input-group">
+                                <label for = "pob" class = "lbl"> Place of Birth : </label>
+                                <input type = "text" id = "pob" name = "pob" value = "{{user.POB}}" class = "form-control input_type pob" placeholder="Place of Birth">
+                                
+                                
+                            </div> 
+                            <br>
+
+                            <!--input field for Marriage anniversary -->
+                            <div class="input-group">
+                                <label for = "mrg anniversary" class = "lbl"> Marriage Anniversary : </label>
+                                <input type = "date" name = "mrg_ann" id = "mrg_ann" value = "{{user.Mrg_anniversary}}" class = "form-control input_type pob">
+                                
+                            </div> 
+                            <br>
+
+                            <!--input field for Gender in radio buttons -->
+
+                            <label for="radio" class="lbl" name='radio' id='radio'> Gender : </label>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value= "male" {{ 'checked' if user.Gender=='male' }} >
+                                <label class="form-check-label lbl" for="inlineRadio1" value="{{user.Gender}}" 
+                                > Male </label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female" {{ 'checked' if user.Gender=='female' else '' }}>
+                                <label class="form-check-label lbl" for="inlineRadio2" value="{{user.Gender}}"> Female </label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="others" {{ 'checked' if user.Gender=='others' else '' }}>
+                                <label class="form-check-label lbl" for="inlineRadio3" value="{{user.Gender}}"> Others </label>
+                            </div>
+
+                            <!-- <div class="input-group">
+                                <label for="radio" class="lbl" name='radio' id='radio'> Gender : </label>
+                                <div class="form-check-inline">
+                                    <span class="form-check-label lbl form_pad" for = "radio">
+                                        <input type="radio" class="form-check-input" id="male" name="gender" value = "male"> Male
+                                        <br>
+                                    </span>
+                                </div>
+                                <br>
+
+                                <div class="form-check-inline">
+                                    <span class="form-check-label lbl form_pad" for = "radio">
+                                        <input type="radio" class="form-check-input" id="female" name="gender" value = "female"> Female
+                                        <br>
+                                    </span>
+                                </div> 
+                                <br>
+        
+                                <div class="form-check-inline">
+                                    <span class="form-check-label lbl form_pad" for = "radio">
+                                        <input type="radio" class="form-check-input" id="others" name="gender" value="others"> Others 
+                                        <br>
+                                    </span>
+                                </div>
+                                <br>
+                                
+                                       
+                            </div> -->
+                            <br>
+                            <br>
+                            <button class = "button_save_con" id = "save_con1" type = "submit"> Save & Continue </button>
+                            <button class= "button_prev disabled" id = "prev1" type = "button"> Previous </button>
+                            
+                            
+                        </form>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+     
+    </body>
+</html>

@@ -1,0 +1,113 @@
+<!--using html5 doctype -->
+<!doctype html>
+
+<!--using language attribute-->
+<html lang="en">
+    <head>
+        <!--links added in head tag to call Bootstrap live project from MAXCDN-->
+        <!--below ones are from MAXCDN-->
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <!-- plugin for jquery validation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"> </script>
+        
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <!--using character set attribute in meta tag-->
+        <meta charset="UTF-8">
+
+        <!--bootstrap-4 for mobile responsive-->
+	    <!--using below meta tag to set width and initial zoom level-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--link for CSS-->
+        <link rel="stylesheet" type="text/css" href="\static\css\mos_style.css">
+        
+        <!-- link for jquery validation -->
+        <script src = "{{('\static\jquery\mos_val.js')}}"> </script>
+        <script src = "{{('\static\jquery\check_val.js')}}"> </script>
+
+        <!--link for input group prepend for adding text / icon in the input -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        
+    </head>
+
+    <body class = "bg_color">
+        <div class="container form_title">
+            <p> MOS Membership Application Form  </p>
+        </div>
+        <br>
+
+        <div class="container">
+            <fieldset>     
+                <legend> <i class = "legend" > Address Information </i> </legend>
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Address panel-->
+                        <form name = "communication" id = "communication" action = "{{url_for('mos.Communication', id = id)}}" method = "POST">
+                            <div class = "row">
+                                <div class = "col-md-6">
+                                    <div class = "form_title"> Residential/Permanent Address </div> <br>
+
+                                    <label for = "address_rp" class = "address rp_address_pad"> Address : </label>
+                                    <input type  = "text" name="rp_addr" id = "rp_addr" class = "form-control input_type" value = "{{user.Resi_address}}">
+                                    <label id = "rp_ad_error" class = "text-danger text-center error"> </label>
+                                    <label for = "city" class = "address"> City : </label>
+                                    <input type  = "text" name="rp_city" id = "rp_city" class = "form-control input_type" value = "{{user.Resi_city}}">
+                                    <label id = "rp_city_error" class = "text-danger text-center error"> </label>
+                                    <label for = "pin" class = "address"> Pin code : </label>
+                                    <input type  = "number" name="rp_pin" id = "rp_pin" class = "form-control input_type" value = "{{user.Resi_pin_code}}">
+                                    <label id = "rp_pin_error" class = "text-danger text-center error"> </label>
+                                </div>
+
+                                <div class = "col-md-6">
+                                    <div class = "form_title"> Clinic Address </div> <br>
+                                    <input type = "checkbox" id = "check" name = "check"> 
+                                    <label for = "address" class = "address check_addr"> Same as Residential address </label>
+                                    <br> 
+
+                                    <label for = "address_c" class = "address c_address_pad"> Address : </label>
+                                    <input type  = "text" name="c_addr" id = "c_addr" class = "form-control input_type" value = "{{user.Clinic_address}}">
+                                    <label id = "c_ad_error" class = "text-danger text-center error"> </label>
+                                    <label for = "city" class = "address"> City : </label>
+                                    <input type  = "text" name="c_city" id = "c_city" class = "form-control input_type" value = "{{user.Clinic_city}}">
+                                    <label id = "c_city_error" class = "text-danger text-center error"> </label>
+                                    <label for = "pin" class = "address"> Pin code : </label>
+                                    <input type  = "number" name="c_pin" id = "c_pin" class = "form-control input_type" value = "{{user.Clinic_pin_code}}">
+                                    <label id = "c_pin_error" class = "text-danger text-center error"> </label>
+                                </div>
+                                
+                            </div>
+                            
+                            <br>
+
+                                {% if id >= 0 %}
+
+                                <button class="button_save_con" type = "submit" id = "save_con2"> Save & Continue </button>
+                                <a href = "{{ url_for('mos.Personalia', id = id) }}" class = "button_prev" id = "prev2" type = "button"> Previous </a>
+
+                                {% endif %}
+                                
+                        </form>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </body>
+</html>
+
+
+                            
+                        
+           
+    
+

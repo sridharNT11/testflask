@@ -1,0 +1,106 @@
+<!--using html5 doctype -->
+<!doctype html>
+
+<!--using language attribute-->
+<html lang="en">
+    <head>
+        <!--links added in head tag to call Bootstrap live project from MAXCDN-->
+        <!--below ones are from MAXCDN-->
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <!-- plugin for jquery validation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"> </script>
+        
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <!--using character set attribute in meta tag-->
+        <meta charset="UTF-8">
+
+        <!--bootstrap-4 for mobile responsive-->
+	    <!--using below meta tag to set width and initial zoom level-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--link for CSS-->
+        <link rel="stylesheet" type="text/css" href="\static\css\mos_style.css">
+        
+        <!-- link for jquery validation -->
+        <script src = "{{('\static\jquery\mos_val.js')}}"> </script>
+
+        <!--link for input group prepend for adding text / icon in the input -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        
+    </head>
+
+    <body class = "bg_color">
+        <div class="container form_title">
+            <p> MOS Membership Application Form  </p>
+        </div>
+        <br>
+
+        <!-- creating Navigation- Toggle tabs -->
+        <div class="container">
+            <fieldset>     
+                <legend> <i class = "legend" > Awards/Papers Published </i> </legend>
+                <div class="card">
+                    <div class="card-body">
+                        <form action = "{{url_for('mos.Insert_awards')}}" method = "POST">
+                            <!-- creating a table view -->
+                            <table class="table table-striped table-active table-hover">
+                                <thead class = "table_head">
+                                    <tr>
+                                        <th> Published </th>
+                                        <th> Title </th>
+                                        <th> Journal </th>
+                                        <th> Year </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row1_pub" id = "row1_pub" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row1_title" id = "row1_title" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row1_jnl" id = "row1_jnl" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row1_year" id = "row1_year" value = ""> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row2_pub" id = "row2_pub" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row2_title" id = "row2_title" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row2_jnl" id = "row2_jnl" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row2_year" id = "row2_year" value = ""> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row3_pub" id = "row3_pub" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row3_title" id = "row3_title" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row3_jnl" id = "row3_jnl" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row3_year" id = "row3_year" value = ""> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row4_pub" id = "row4_pub" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row4_title" id = "row4_title" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row4_jnl" id = "row4_jnl" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row4_year" id = "row4_year" value = ""> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <button class="button_save_con" type = "submit" id = "save_con"> Save & Submit </button>
+                            <a href = '/prof_att' class="button_prev" id = "prev5" type = "button"> Previous </a>
+                        </form>
+                    </div>
+                </div>    
+            </fieldset>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,126 @@
+<!--using html5 doctype -->
+<!doctype html>
+
+<!--using language attribute-->
+<html lang="en">
+    <head>
+        <!--links added in head tag to call Bootstrap live project from MAXCDN-->
+        <!--below ones are from MAXCDN-->
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <!-- plugin for jquery validation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"> </script>
+        
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <!--using character set attribute in meta tag-->
+        <meta charset="UTF-8">
+
+        <!--bootstrap-4 for mobile responsive-->
+	    <!--using below meta tag to set width and initial zoom level-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--link for CSS-->
+        <link rel="stylesheet" type="text/css" href="\static\css\mos_style.css">
+        
+        <!-- link for jquery validation -->
+        <script src = "{{('\static\jquery\mos_val.js')}}"> </script>
+
+        <!--link for input group prepend for adding text / icon in the input -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        
+    </head>
+
+    <body class = "bg_color">
+        <div class="container form_title">
+            <p> MOS Membership Application Form  </p>
+        </div>
+        <br>
+
+        <div class="container">
+            <fieldset>     
+                <legend> <i class = "legend" > Professional Attachment </i> </legend>
+                <div class="card">
+                    <div class="card-body">
+                        <!--Proffessional attachment-->
+                        <form name = "prof_att" id = "prof_att" action = "{{url_for('mos.Prof_att', id = id)}}" method = "POST">
+                            <!-- creating a table view -->
+                            <table class="table table-striped table-active table-hover">
+                                <thead class = "table_head">
+                                    <tr>
+                                        <th> Institution </th>
+                                        <th> Designation </th>
+                                        <th> From </th>
+                                        <th> To </th>
+                                    </tr>
+
+                                </thead>
+
+                                {% with messages = get_flashed_messages() %}
+
+                                {% if messages %}
+
+                                {% for message in messages %}
+
+                                <div class="alert alert-danger alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong> {{message}} </strong> 
+                                </div>
+
+                                {% endfor %}
+
+                                {% endif %}
+                            
+                                {% endwith %}
+
+                                <br>
+
+                                <tbody>
+                                    <tr>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row1_ins" id = "row1_ins" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row1_desig" id = "row1_desig" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row1_from" id = "row1_from" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row1_to" id = "row1_to" value = ""> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row2_ins" id = "row2_ins" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row2_desig" id = "row2_desig" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row2_from" id = "row2_from" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row2_to" id = "row2_to" value = ""> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row3_ins" id = "row3_ins" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row3_desig" id = "row3_desig" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row3_from" id = "row3_from" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row3_to" id = "row3_to" value = ""> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row4_ins" id = "row4_ins" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row4_desig" id = "row4_desig" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row4_from" id = "row4_from" value = ""> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row4_to" id = "row4_to" value = ""> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <button class="button_save_con" type = "submit" id = "save_con4"> Save & Continue </button>
+                            <a href = "{{ url_for('mos.Qualifications', id = id) }}" class="button_prev" id = "prev4" type = "button"> Previous </a>
+                        </form>
+                    </div>                    
+                </div>
+            </fieldset>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,136 @@
+<!--using html5 doctype -->
+<!doctype html>
+
+<!--using language attribute-->
+<html lang="en">
+    <head>
+        <!--links added in head tag to call Bootstrap live project from MAXCDN-->
+        <!--below ones are from MAXCDN-->
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <!-- plugin for jquery validation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"> </script>
+        
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <!--using character set attribute in meta tag-->
+        <meta charset="UTF-8">
+
+        <!--bootstrap-4 for mobile responsive-->
+	    <!--using below meta tag to set width and initial zoom level-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--link for CSS-->
+        <link rel="stylesheet" type="text/css" href="\static\css\mos_style.css">
+        
+        <!-- link for jquery validation -->
+        <script src = "{{('\static\jquery\mos_val.js')}}"> </script>
+
+        <!--link for input group prepend for adding text / icon in the input -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        
+    </head>
+
+    <body class = "bg_color">
+        <div class="container form_title">
+            <p> MOS Membership Application Form  </p>
+        </div>
+        <br>
+
+        <!-- creating Navigation- Toggle tabs -->
+        <div class="container">
+            <fieldset>     
+                <legend> <i class = "legend" > Qualifications </i> </legend>                
+                <div class="card">
+                    <div class="card-body">                               
+                        <form name = "qualifications" id = "qualifications" action = "{{url_for('mos.Qualifications', id = id)}}" method = "POST">
+                            <!--Qualifications panel-->
+                            <div class = "input-group">
+                                <label for = "reg.no" class = "address council"> Registration No : </label>
+                                <input type = "text" name = "reg_no" id = "reg_no" class = "form-control input_type council">
+
+                                <label for = "council" class = "address council"> Council : </label>
+                                <input type = "text" name = "council" id = "council" class = "form-control input_type council">
+
+                                <label for = "no_dt" class = "address council"> No & Date : </label>
+                                <input type = "text" name = "no_dt" id = "no_dt" class = "form-control input_type council">
+
+                            </div>
+                            <br>
+
+                            {% with messages = get_flashed_messages() %}
+
+                            {% if messages %}
+
+                            {% for message in messages %}
+
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong> {{message}} </strong> 
+                            </div>
+
+                    
+
+                            {% endfor %}
+
+                            {% endif %}
+                        
+                            {% endwith %}
+
+                            <br> 
+
+                            <!-- creating a table view -->
+                            <table class="table table-striped table-active table-hover">
+                                <thead class = "table_head">
+                                    <tr>
+                                        <th> Degree/Fellowship <br> (from the last) </th>
+                                        <th> University/Institution </th>
+                                        <th> Year of Obtaining </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row1_deg" id = "row1_deg" value = "{{user[0].Degree}}"> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row1_univ" id = "row1_univ" value = "{{user[0].Univ_ins}}"> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row1_year" id = "row1_year" value = "{{user[0].year_obtained}}"> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row2_deg" id = "row2_deg" value = "{{user[1].Degree}}"> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row2_univ" id = "row2_univ" value = "{{user[1].Univ_ins}}"> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row2_year" id = "row2_year" value = "{{user[1].year_obtained}}"> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row3_deg" id = "row3_deg" value = "{{user[2].Degree|default('')}}"> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row3_univ" id = "row3_univ" value = "{{user[2].Univ_ins|default('')}}"> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row3_year" id = "row3_year" value = "{{user[2].year_obtained|default('')}}"> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row4_deg" id = "row4_deg" value = "{{user[3].Degree|default('')}}"> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row4_univ" id = "row4_univ" value = "{{user[3].Univ_ins|default('')}}"> </td>
+                                        <td> <input type = "text" class = "form-control input_type" name = "row4_year" id = "row4_year" value = "{{user[3].year_obtained|default('')}}"> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <button class="button_save_con" type = "submit" id = "save_con3"> Save & Continue </button>
+                            <a href = "{{ url_for('mos.Communication', id = id) }}" class="button_prev" id = "prev3" type = "button"> Previous </a>
+                        </form>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </body>
+</html>
